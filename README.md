@@ -31,6 +31,6 @@ Check the data details :
 ## Codes Description    
 
 
-R files in IndividualDashboards provides individual dashboards.    
-R file in FinalDashboards gives the whole dashboards combined the individual ones.
+R files in IndividualDashboards.R provides individual dashboards.    
+R file in FinalDashboard.R gives the whole dashboards combined the individual ones.
   
