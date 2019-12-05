@@ -1,0 +1,512 @@
+marker = list(color = 'rgb(158,202,225)',
+line = list(color = 'rgb(8,48,107)', width = 1.5))) %>%
+layout(title = paste("Dog Names within","Brooklyn"),
+xaxis = list(title = "Dog Name"),
+yaxis = list(title = ""))
+runApp('Documents/job/DSI/borough-app')
+data <- read.csv("dog.licenses.name2.csv")
+View(dog.licenses.name)
+install.packages("stringr")
+library(stringr)
+library(stringr)
+str_replace_all(dog.licenses$AnimalName,fixed(" "),"")
+dog.licenses$AnimalName <- str_replace_all(dog.licenses$AnimalName,fixed(" "),"")
+write.csv(dog.licenses,file="dog.licenses.csv")
+dogname <- data.frame(table(dog.licenses$AnimalName))
+noname.index <- seq(1,nrow(dogname))[dogname$Var1 %in% c("NAME NOT PROVIDED","UNKNOWN")]
+dogname <- dogname[-noname.index,]
+#dogname <- dogname[dogname[,2]>=50,]
+dog.licenses.name <- dog.licenses[dog.licenses$AnimalName %in% dogname[,1],]
+dog.licenses.name <- subset(dog.licenses.name,select=c(AnimalName,Borough))
+dog.licenses.name2 <- data.frame()
+for (i in unique(dog.licenses.name$Borough)){
+borough.data <- dog.licenses.name[dog.licenses.name$Borough==i,]
+borough.data <- data.frame(table(borough.data$AnimalName))
+borough.data <- borough.data[order(borough.data[,2],decreasing = T),]
+borough.data <- borough.data[1:10,]
+borough.data$Borough <- i
+dog.licenses.name2 <- rbind(dog.licenses.name2,borough.data)
+}
+colnames(dog.licenses.name2)[1] <- "AnimalName"
+View(dog.licenses.name2)
+write.csv(dog.licenses.name2,file="dog.licenses.name2.csv")
+data <- read.csv("dog.licenses.name2.csv")
+data <- data[,-1]
+data2 <- data[data$Borough== "Brooklyn",]
+plot_ly(data2,x= ~AnimalName, y= ~Freq, type= "bar",
+marker = list(color = 'rgb(158,202,225)',
+line = list(color = 'rgb(8,48,107)', width = 1.5))) %>%
+layout(title = paste("Dog Names within","Brooklyn"),
+xaxis = list(title = "Dog Name"),
+yaxis = list(title = ""))
+dogname <- data.frame(table(dog.licenses$AnimalName))
+noname.index <- seq(1,nrow(dogname))[dogname$Var1 %in% c("NAMENOTPROVIDED","UNKNOWN")]
+dogname <- dogname[-noname.index,]
+#dogname <- dogname[dogname[,2]>=50,]
+dog.licenses.name <- dog.licenses[dog.licenses$AnimalName %in% dogname[,1],]
+dog.licenses.name <- subset(dog.licenses.name,select=c(AnimalName,Borough))
+dog.licenses.name2 <- data.frame()
+for (i in unique(dog.licenses.name$Borough)){
+borough.data <- dog.licenses.name[dog.licenses.name$Borough==i,]
+borough.data <- data.frame(table(borough.data$AnimalName))
+borough.data <- borough.data[order(borough.data[,2],decreasing = T),]
+borough.data <- borough.data[1:10,]
+borough.data$Borough <- i
+dog.licenses.name2 <- rbind(dog.licenses.name2,borough.data)
+}
+colnames(dog.licenses.name2)[1] <- "AnimalName"
+write.csv(dog.licenses.name2,file="dog.licenses.name2.csv")
+data <- read.csv("dog.licenses.name2.csv")
+data <- data[,-1]
+data2 <- data[data$Borough== "Brooklyn",]
+plot_ly(data2,x= ~AnimalName, y= ~Freq, type= "bar",
+marker = list(color = 'rgb(158,202,225)',
+line = list(color = 'rgb(8,48,107)', width = 1.5))) %>%
+layout(title = paste("Dog Names within","Brooklyn"),
+xaxis = list(title = "Dog Name"),
+yaxis = list(title = ""))
+install.packages("library(extrafont)")
+install.packages("extrafont")
+library(extrafont)
+runApp('Documents/job/DSI/borough-app')
+data <- read.csv("dog.licenses.name2.csv")
+data <- data[,-1]
+data <- data[data$Borough== "Brooklyn",]
+View(data)
+p <- ggplot(data=data,aes(x=AnimalName,y=Freq))+
+geom_bar()
+ggplot(data=data,aes(x=AnimalName,y=Freq))+
+geom_bar()
+?geom_bar
+ggplot(data=data,aes(x=AnimalName,y=Freq))+
+geom_col()
+runApp('Documents/job/DSI/borough-app')
+runApp('Documents/job/DSI/borough-app')
+runApp('Documents/job/DSI/borough-app')
+runApp()
+runApp()
+runApp('Documents/job/DSI/borough-app')
+runApp()
+runApp('Documents/job/DSI/borough-app')
+p <- ggplot(data=data,aes(x=AnimalName,y=Freq))+
+geom_col()
+ggplotly(p)
+plot_ly(data,x= ~AnimalName, y= ~Freq, type= "bar",
+marker = list(color = 'rgb(158,202,225)',
+line = list(color = 'rgb(8,48,107)', width = 1.5))) %>%
+layout(title = paste("Dog Names within",input$Borough),
+xaxis = list(title = "Dog Name"),
+yaxis = list(title = ""))
+plot_ly(data,x= ~AnimalName, y= ~Freq, type= "bar",
+marker = list(color = 'rgb(158,202,225)',
+line = list(color = 'rgb(8,48,107)', width = 1.5))) %>%
+layout(title = paste("Dog Names within", "Brooklyn"),
+xaxis = list(title = "Dog Name"),
+yaxis = list(title = ""))
+runApp('Documents/job/DSI/borough-app')
+rgb(158,202,225)
+theme_xkcd <- theme(
+panel.background = element_rect(fill="white"),
+axis.ticks = element_line(colour=NA),
+panel.grid = element_line(colour="white"),
+axis.text.y = element_text(colour="black"),
+axis.text.x = element_text(colour="black"),
+text = element_text(size=16, family="Humor Sans")
+)
+p <- ggplot(data=data,aes(x=AnimalName,y=Freq))+
+geom_col(color = rgb(158,202,225,maxColorValue = 255))+
+theme_xkcd
+p
+ggplot(data=data,aes(x=AnimalName,y=Freq))+
+geom_col(color = rgb(158,202,225,maxColorValue = 255))
+ggplot(data=data,aes(x=AnimalName,y=Freq))+
+geom_col(color = rgb(158,202,225,maxColorValue = 255))
+ggplot(data=data,aes(x=AnimalName,y=Freq))+
+geom_col(fill = rgb(158,202,225,maxColorValue = 255))
+theme_xkcd <- theme(
+panel.background = element_rect(fill="white"),
+axis.ticks = element_line(colour=NA),
+panel.grid = element_line(colour="white"),
+axis.text.y = element_text(colour="black"),
+axis.text.x = element_text(colour="black"),
+text = element_text(size=16, family="Humor Sans")
+)
+ggplot(data=data,aes(x=AnimalName,y=Freq))+
+geom_col(fill = rgb(158,202,225,maxColorValue = 255))+
+theme_xkcd
+theme_xkcd <- theme(
+panel.background = element_rect(fill="white"),
+# axis.ticks = element_line(colour=NA),
+# panel.grid = element_line(colour="white"),
+axis.text.y = element_text(colour="black"),
+axis.text.x = element_text(colour="black"),
+text = element_text(size=16, family="Humor Sans")
+)
+ggplot(data=data,aes(x=AnimalName,y=Freq))+
+geom_col(fill = rgb(158,202,225,maxColorValue = 255))+
+theme_xkcd
+update.packages(ggplot2)
+update.packages("ggplot2")
+theme_xkcd <- theme(
+panel.background = element_rect(fill="white"),
+# axis.ticks = element_line(colour=NA),
+# panel.grid = element_line(colour="white"),
+axis.text.y = element_text(colour="black"),
+axis.text.x = element_text(colour="black"),
+text = element_text(size=16, family="Humor Sans")
+)
+ggplot(data=data,aes(x=AnimalName,y=Freq))+
+geom_col(fill = rgb(158,202,225,maxColorValue = 255))+
+theme_xkcd
+update.packages("shiny")
+update.packages("plotly")
+update.packages("extrafont")
+runApp('Documents/job/DSI/borough-app')
+runApp('Documents/job/DSI/borough-app')
+runApp('Documents/job/DSI/borough-app')
+runApp('Documents/job/DSI/borough-app')
+rgb(8,48,107)
+rgb(8,48,107,maxColorValue = 255)
+runApp('Documents/job/DSI/borough-app')
+?renderPlotly
+runApp('Documents/job/DSI/borough-app')
+runApp('Documents/job/DSI/borough-app')
+runApp('Documents/job/DSI/borough-app')
+runApp('Documents/job/DSI/borough-app')
+runApp('Documents/job/DSI/borough-app')
+runApp('Documents/job/DSI/borough-app')
+?renderPlotly
+runApp('Documents/job/DSI/borough-app')
+unique(dog.bites$Breed)
+dogbreeds <- data.frame(table(dog.bites$Breed))
+View(dogbreeds)
+dogbreeds <- dogbreeds[-1,]
+dogbreeds <- dogbreeds[order(dogbreeds[,2],decreasing = T),]
+na.index <- seq(1,nrow(dog.bites))[dog.bites$Breed == " "]
+na.index <- seq(1,nrow(dog.bites))[dog.bites$Breed == ""]
+dogbreeds <- dog.bites[-na.index,]
+View(dogbreeds)
+dog.bites.breed <- dog.bites[-na.index,]
+na.index <- seq(1,nrow(dog.bites))[dog.bites$Breed == ""]
+dog.bites.breed <- dog.bites[-na.index,]
+dog.bites.breed2 <- data.frame()
+for (i in unique(dog.bites.breed$Borough)){
+borough.data <- dog.bites.breed[dog.bites.breed$Borough==i,]
+borough.data <- data.frame(table(borough.data$Breed))
+borough.data <- borough.data[order(borough.data[,2],decreasing = T),]
+borough.data <- borough.data[1:10,]
+borough.data$Borough <- i
+dog.bites.breed2 <- rbind(dog.bites.breed2,borough.data)
+}
+colnames(dog.licenses.name2)[1] <- "Breed"
+#write.csv(dog.licenses.name2,file="dog.licenses.name2.csv")
+View(dog.bites.breed2)
+na.index <- seq(1,nrow(dog.bites))[dog.bites$Breed %in% c("","UNKNOWN",
+"MIXED","Mixed/Other")]
+dog.bites.breed <- dog.bites[-na.index,]
+dog.bites.breed2 <- data.frame()
+for (i in unique(dog.bites.breed$Borough)){
+borough.data <- dog.bites.breed[dog.bites.breed$Borough==i,]
+borough.data <- data.frame(table(borough.data$Breed))
+borough.data <- borough.data[order(borough.data[,2],decreasing = T),]
+borough.data <- borough.data[1:10,]
+borough.data$Borough <- i
+dog.bites.breed2 <- rbind(dog.bites.breed2,borough.data)
+}
+colnames(dog.licenses.name2)[1] <- "Breed"
+#write.csv(dog.licenses.name2,file="dog.licenses.name2.csv")
+na.index <- seq(1,nrow(dog.bites))[dog.bites$Breed %in% c("","UNKNOWN",
+"MIXED","Mixed/Other")]
+dog.bites.breed <- dog.bites[-na.index,]
+dog.bites.breed.all <- data.frame(table(dog.bites.breed$Breed))
+dog.bites.breed.all <- dog.bites.breed.all[order(dog.bites.breed.all[,2],decreasing = T),]
+dog.bites.breed.all <- dog.bites.breed.all[1:10,]
+colnames(dog.bites.breed.all)[1] <- "Breed"
+dog.bites.breed2 <- data.frame()
+for (i in unique(dog.bites.breed$Borough)){
+borough.data <- dog.bites.breed[dog.bites.breed$Borough==i,]
+borough.data <- data.frame(table(borough.data$Breed))
+borough.data <- borough.data[order(borough.data[,2],decreasing = T),]
+borough.data <- borough.data[1:10,]
+borough.data$Borough <- i
+dog.bites.breed2 <- rbind(dog.bites.breed2,borough.data)
+}
+colnames(dog.bites.breed2)[1] <- "Breed"
+write.csv(dog.bites.breed.all, file="dog.bites.breeds.all.csv")
+write.csv(dog.bites.breed2,file="dog.bites.breed2.csv")
+runApp('Documents/job/DSI/Q4')
+runApp('Documents/job/DSI/Q4')
+runApp('Documents/job/DSI/Q4')
+runApp('Documents/job/DSI/Q4')
+View(dogname)
+dogname <- dogname[order(dogname[,2],decreasing = T),]
+dog.licenses.name.all <- dogname[1:10,]
+colnames(dog.licenses.name.all)[1] <- "Name"
+colnames(dog.licenses.name2)[1] <- "Name"
+write.csv(dog.licenses.name.all,file="dog.licenses.name.all.csv")
+write.csv(dog.licenses.name2,file="dog.licenses.name2.csv")
+runApp('Documents/job/DSI/Q5')
+runApp('Documents/job/DSI/Q4')
+runApp()
+runApp()
+?labs
+runApp('Documents/job/DSI/Q4')
+runApp('Documents/job/DSI/Q5')
+runApp('Documents/job/DSI/Q5')
+na.index <- seq(1,nrow(dog.licenses))[dog.licenses$Breed %in% c("","UNKNOWN",
+"MIXED","Mixed/Other")]
+View(dog.licenses)
+#na.index <- seq(1,nrow(dog.licenses))[dog.licenses$BreedName %in% c("","UNKNOWN","MIXED","Mixed/Other")]
+dog.licenses.breed <- dog.licenses
+dog.licenses.breed.all <- data.frame(table(dog.licenses.breed$BreedName))
+dog.licenses.breed.all <- dog.licenses.breed.all[order(dog.licenses.breed.all[,2],decreasing = T),]
+dog.licenses.breed.all <- dog.licenses.breed.all[1:10,]
+colnames(dog.bites.breed.all)[1] <- "Breed"
+View(dog.bites.breed.all)
+dog.licenses.breed2 <- data.frame()
+for (i in unique(dog.licenses.breed$Borough)){
+borough.data <- dog.licenses.breed[dog.licenses.breed$Borough==i,]
+borough.data <- data.frame(table(borough.data$Breed))
+borough.data <- borough.data[order(borough.data[,2],decreasing = T),]
+borough.data <- borough.data[1:10,]
+borough.data$Borough <- i
+dog.licenses.breed2 <- rbind(dog.licenses.breed2,borough.data)
+}
+colnames(dog.licenses.breed2)[1] <- "Breed"
+View(dog.licenses.breed2)
+na.index <- seq(1,nrow(dog.licenses))[dog.licenses$BreedName %in% c("","Unknown","MIXED","Mixed/Other")]
+dog.licenses.breed <- dog.licenses
+dog.licenses.breed.all <- data.frame(table(dog.licenses.breed$BreedName))
+dog.licenses.breed.all <- dog.licenses.breed.all[order(dog.licenses.breed.all[,2],decreasing = T),]
+dog.licenses.breed.all <- dog.licenses.breed.all[1:10,]
+colnames(dog.bites.breed.all)[1] <- "Breed"
+View(dog.licenses.breed.all)
+na.index <- seq(1,nrow(dog.licenses))[dog.licenses$BreedName %in% c("","Unknown","MIXED","Mixed/Other")]
+dog.licenses.breed <- dog.licenses
+dog.licenses.breed.all <- data.frame(table(dog.licenses.breed$BreedName))
+dog.licenses.breed.all <- dog.licenses.breed.all[order(dog.licenses.breed.all[,2],decreasing = T),]
+dog.licenses.breed.all <- dog.licenses.breed.all[1:10,]
+colnames(dog.bites.breed.all)[1] <- "Breed"
+na.index <- seq(1,nrow(dog.licenses))[dog.licenses$BreedName %in% c("","Unknown","MIXED","Mixed/Other")]
+dog.licenses.breed <- dog.licenses[-na.index]
+dog.licenses.breed.all <- data.frame(table(dog.licenses.breed$BreedName))
+dog.licenses.breed.all <- dog.licenses.breed.all[order(dog.licenses.breed.all[,2],decreasing = T),]
+dog.licenses.breed.all <- dog.licenses.breed.all[1:10,]
+colnames(dog.bites.breed.all)[1] <- "Breed"
+na.index <- seq(1,nrow(dog.licenses))[dog.licenses$BreedName %in% c("","Unknown","MIXED","Mixed/Other")]
+dog.licenses.breed <- dog.licenses[-na.index,]
+dog.licenses.breed.all <- data.frame(table(dog.licenses.breed$BreedName))
+dog.licenses.breed.all <- dog.licenses.breed.all[order(dog.licenses.breed.all[,2],decreasing = T),]
+dog.licenses.breed.all <- dog.licenses.breed.all[1:10,]
+colnames(dog.bites.breed.all)[1] <- "Breed"
+dog.licenses.breed2 <- data.frame()
+for (i in unique(dog.licenses.breed$Borough)){
+borough.data <- dog.licenses.breed[dog.licenses.breed$Borough==i,]
+borough.data <- data.frame(table(borough.data$Breed))
+borough.data <- borough.data[order(borough.data[,2],decreasing = T),]
+borough.data <- borough.data[1:10,]
+borough.data$Borough <- i
+dog.licenses.breed2 <- rbind(dog.licenses.breed2,borough.data)
+}
+colnames(dog.licenses.breed2)[1] <- "Breed"
+write.csv(dog.licenses.breed.all, file="dog.licenses.breed.all.csv")
+write.csv(dog.licenses.breed2,file="dog.licenses.breed2.csv")
+runApp('Documents/job/DSI/Q1')
+colnames(dog.licenses.breed.all)[1] <- "Breed"
+write.csv(dog.licenses.breed.all, file="dog.licenses.breed.all.csv")
+runApp('Documents/job/DSI/Q1')
+dog.licenses.name.all$Borough = "New York City"
+dog.licenses.name2 <- rbind(dog.licenses.name.all,dog.licenses.name2)
+#write.csv(dog.licenses.name.all,file="dog.licenses.name.all.csv")
+write.csv(dog.licenses.name2,file="dog.licenses.name2.csv")
+runApp('Documents/job/DSI/Q5')
+dog.bites.breed.all$Borough <- "New York City"
+dog.bites.breed2 <- rbind(dog.bites.breed.all,dog.bites.breed2)
+#write.csv(dog.bites.breed.all, file="dog.bites.breeds.all.csv")
+write.csv(dog.bites.breed2,file="dog.bites.breed2.csv")
+runApp('Documents/job/DSI/Q4&Q6')
+dog.licenses.breed.all$Borough <- "New York City"
+dog.licenses.breed2 <- rbind(dog.licenses.breed.all,dog.licenses.breed2)
+#write.csv(dog.licenses.breed.all, file="dog.licenses.breed.all.csv")
+write.csv(dog.licenses.breed2,file="dog.licenses.breed2.csv")
+runApp('Documents/job/DSI/Q1')
+boxplot(dog.bites$Age)
+unique(dog.bites$Age)
+View(dog.bites)
+dog.bites$Age <- str_replace_all(dog.bites$Age,fixed(" "),"")
+View(dog.bites)
+dog.bites$Age <- toupper(dog.bites$Age)
+unique(dog.bites$Age)
+dog.bites$Age <- ifelse(nchar(dog.bites$Age)>5,"",dog.bites$Age)
+unique(dog.bites$Age)
+dog.bites.age <- dog.bites
+dog.bites.age$"Young or Old" <- ifelse(grepl(dog.bites.age$Age, "M"),"Young",NA)
+dog.bites.age$Age <- ifelse(grepl(dog.bites.age$Age, "M"),"Young",NA)
+dog.bites.age$Age <- ifelse(grepl(dog.bites.age$Age, "M"),"Young",NA)
+dog.bites.age$"Young or Old" <- grepl(dog.bites.age$Age, "M")
+?grepl
+dog.bites.age$"Young or Old" <- apply(dog.bites.age$Age,1,grepl,x="M")
+dog.bites.age$Age[1]
+dog.bites.age <- dog.bites[-seq(1,nrow(dog.bites))[is.na(dog.bites$Age)],]
+View(dog.bites.age)
+dog.bites.age <- dog.bites[dog.bites$Age!="",]
+View(dog.bites.age)
+dog.bites.age$"Young or Old" <- ifelse(grepl(dog.bites.age$Age,"M"),"Young",NA)
+grepl(dog.bites.age$Age,"M")
+dog.bites.age$"Young or Old" <- apply(dog.bites.age$Age,1,grepl,x="M")
+dog.bites.age$Age[1]
+grepl(dog.bites.age$Age,"M")
+dog.bites.age$"Young or Old" <- apply(data.frame(dog.bites.age$Age),1,grepl,x="M")
+dog.bites.age[24]
+dog.bites.age[24,]
+dog.bites.age$Age[24]
+test <- dog.bites.age$Age
+test <- data.frame(test)
+View(test)
+test[15,]
+c(test[15,])
+dog.bites.age$"Young or Old" <- NA
+for ( i in 1:nrow(dog.bites.age)){
+dog.bites.age$`Young or Old`[i] <- grepl(dog.bites.age$Age[i],"M")
+}
+View(dog.bites.age)
+i=24
+dog.bites.age$Age[i]
+i=1
+dog.bites.age$Age[i]
+dog.bites.age$Age[2]
+dog.bites.age$Age[15]
+rownames(dog.bites.age) <- 1:nrow(dog.bites.age)
+dog.bites.age$"Young or Old" <- NA
+for ( i in 1:nrow(dog.bites.age)){
+dog.bites.age$`Young or Old`[i] <- grepl(dog.bites.age$Age[i],"M")
+}
+grepl(dog.bites.age$Age[15],"M")
+grepl("7M","M")
+grepl("M","7M")
+dog.bites$Age <- str_replace_all(dog.bites$Age,fixed(" "),"")
+dog.bites$Age <- toupper(dog.bites$Age)
+dog.bites$Age <- ifelse(nchar(dog.bites$Age)>5,"",dog.bites$Age)
+dog.bites.age <- dog.bites[dog.bites$Age!="",]
+dog.bites.age$"Young or Old" <- apply(data.frame(dog.bites.age$Age,1,grepl,pattern="M"))
+dog.bites$Age <- str_replace_all(dog.bites$Age,fixed(" "),"")
+dog.bites$Age <- toupper(dog.bites$Age)
+dog.bites$Age <- ifelse(nchar(dog.bites$Age)>5,"",dog.bites$Age)
+dog.bites.age <- dog.bites[dog.bites$Age!="",]
+dog.bites.age$"Young or Old" <- ifelse(grepl("M",dog.bites.age$Age),"Young",NA)
+as.numeric("7M")
+as.numeric("7")
+dog.bites$Age <- str_replace_all(dog.bites$Age,fixed(" "),"")
+dog.bites$Age <- toupper(dog.bites$Age)
+dog.bites$Age <- ifelse(nchar(dog.bites$Age)>5,"",dog.bites$Age)
+dog.bites.age <- dog.bites[dog.bites$Age!="",]
+dog.bites.age$Age.new <- NA
+dog.bites.age$Age[dog.bites.age$Age=="2-3YR"] <- "2.5"
+unique(dog.bites$Age)
+unique(dog.bites.age$Age)
+dog.bites.age$Age[dog.bites.age$Age=="2-3M"] <- "2.5M"
+unique(dog.bites.age$Age)
+dog.bites.age$Age.new <- NA
+dog.bites.age$Age.new <- ifelse(grepl("W",dog.bites.age$Age),0,NA)
+dog.bites.age$Age.new <- ifelse(grepl("Y",dog.bites.age$Age),regmatches(dog.bites.age$Age,gregexpr('[0-9]+',dog.bites.age$Age)))
+dog.bites.age$Age.new <- ifelse(grepl("Y",dog.bites.age$Age),regmatches(dog.bites.age$Age,gregexpr('[0-9]+',dog.bites.age$Age)),NA)
+dog.bites.age$Age.new <- ifelse(grepl("W",dog.bites.age$Age),0,NA)
+dog.bites$Age <- str_replace_all(dog.bites$Age,fixed(" "),"")
+dog.bites$Age <- toupper(dog.bites$Age)
+dog.bites$Age <- ifelse(nchar(dog.bites$Age)>5,"",dog.bites$Age)
+dog.bites.age <- dog.bites[dog.bites$Age!="",]
+dog.bites.age$Age[dog.bites.age$Age=="2-3YR"] <- "2.5"
+dog.bites.age$Age[dog.bites.age$Age=="2-3M"] <- "2.5M"
+dog.bites.age$Age.new <- NA
+dog.bites.age$Age.new <- ifelse(grepl("W",dog.bites.age$Age),0,NA)
+dog.bites.age$Age.new <- ifelse(grepl("Y",dog.bites.age$Age),regmatches(dog.bites.age$Age,gregexpr('[0-9]+',dog.bites.age$Age)),NA)
+dog.bites.age$Age.new <- ifelse(grepl("Y",dog.bites.age$Age),as.numeric(regmatches(dog.bites.age$Age,gregexpr('[0-9]+',dog.bites.age$Age))),NA)
+dog.bites$Age <- str_replace_all(dog.bites$Age,fixed(" "),"")
+dog.bites$Age <- toupper(dog.bites$Age)
+dog.bites$Age <- ifelse(nchar(dog.bites$Age)>5,"",dog.bites$Age)
+dog.bites.age <- dog.bites[dog.bites$Age!="",]
+dog.bites.age$Age[dog.bites.age$Age=="2-3YR"] <- "2.5"
+dog.bites.age$Age[dog.bites.age$Age=="2-3M"] <- "2.5M"
+dog.bites.age$Age.new <- NA
+dog.bites.age$Age.new <- ifelse(grepl("W",dog.bites.age$Age),0,NA)
+dog.bites.age$Age.new <- ifelse(grepl("Y",dog.bites.age$Age),regmatches(dog.bites.age$Age,gregexpr('[0-9]+',dog.bites.age$Age)),NA)
+View(dog.bites.age)
+unique(dog.bites.age$Age.new)
+#unique(dog.bites.age$Age.new)
+dog.bites.age$Age.new <- ifelse(grepl("M",dog.bites.age$Age),1,NA)
+unique(dog.bites.age$Age.new)
+dog.bites$Age <- str_replace_all(dog.bites$Age,fixed(" "),"")
+dog.bites$Age <- toupper(dog.bites$Age)
+dog.bites$Age <- ifelse(nchar(dog.bites$Age)>5,"",dog.bites$Age)
+dog.bites.age <- dog.bites[dog.bites$Age!="",]
+dog.bites.age$Age[dog.bites.age$Age=="2-3YR"] <- "2.5"
+dog.bites.age$Age[dog.bites.age$Age=="2-3M"] <- "2.5M"
+dog.bites.age$Age.new <- NA
+dog.bites.age$Age.new <- ifelse(grepl("W",dog.bites.age$Age),0,NA)
+dog.bites.age$Age.new <- ifelse(grepl("M",dog.bites.age$Age),1,NA)
+dog.bites.age$Age.new <- ifelse(grepl("Y",dog.bites.age$Age),regmatches(dog.bites.age$Age,gregexpr('[0-9]+',dog.bites.age$Age)),NA)
+dog.bites$Age <- str_replace_all(dog.bites$Age,fixed(" "),"")
+dog.bites$Age <- toupper(dog.bites$Age)
+dog.bites$Age <- ifelse(nchar(dog.bites$Age)>5,"",dog.bites$Age)
+dog.bites.age <- dog.bites[dog.bites$Age!="",]
+dog.bites.age$Age[dog.bites.age$Age=="2-3YR"] <- "2.5"
+dog.bites.age$Age[dog.bites.age$Age=="2-3M"] <- "2.5M"
+dog.bites.age$Age.new <- NA
+dog.bites.age$Age.new <- ifelse(grepl("W",dog.bites.age$Age),0,NA)
+dog.bites.age$Age.new <- ifelse(grepl("M",dog.bites.age$Age),1,NA)
+dog.bites$Age <- str_replace_all(dog.bites$Age,fixed(" "),"")
+dog.bites$Age <- toupper(dog.bites$Age)
+dog.bites$Age <- ifelse(nchar(dog.bites$Age)>5,"",dog.bites$Age)
+dog.bites.age <- dog.bites[dog.bites$Age!="",]
+dog.bites.age$Age[dog.bites.age$Age=="2-3YR"] <- "2.5"
+dog.bites.age$Age[dog.bites.age$Age=="2-3M"] <- "2.5M"
+dog.bites.age$Age.new <- NA
+dog.bites.age$Age.new <- ifelse(grepl("W",dog.bites.age$Age),0,dog.bites.age$Age.new)
+dog.bites.age$Age.new <- ifelse(grepl("M",dog.bites.age$Age),1,dog.bites.age$Age.new)
+dog.bites.age$Age.new <- ifelse(grepl("Y",dog.bites.age$Age),regmatches(dog.bites.age$Age,gregexpr('[0-9]+',dog.bites.age$Age)),dog.bites.age$Age.new)
+unique(dog.bites.age$Age.new)
+dog.bites$Age <- str_replace_all(dog.bites$Age,fixed(" "),"")
+dog.bites$Age <- toupper(dog.bites$Age)
+dog.bites$Age <- ifelse(nchar(dog.bites$Age)>5,"",dog.bites$Age)
+dog.bites.age <- dog.bites[dog.bites$Age!="",]
+dog.bites.age$Age[dog.bites.age$Age=="2-3YR"] <- "2.5"
+dog.bites.age$Age[dog.bites.age$Age=="2-3M"] <- "2.5M"
+dog.bites.age$Age <- ifelse(grepl("W",dog.bites.age$Age),0,dog.bites.age$Age)
+dog.bites.age$Age <- ifelse(grepl("M",dog.bites.age$Age),1,dog.bites.age$Age)
+dog.bites.age$Age <- ifelse(grepl("Y",dog.bites.age$Age),regmatches(dog.bites.age$Age,gregexpr('[0-9]+',dog.bites.age$Age)),dog.bites.age$Age)
+unique(dog.bites.age$Age)
+dog.bites$Age <- str_replace_all(dog.bites$Age,fixed(" "),"")
+dog.bites$Age <- toupper(dog.bites$Age)
+dog.bites$Age <- ifelse(nchar(dog.bites$Age)>5,"",dog.bites$Age)
+dog.bites.age <- dog.bites[dog.bites$Age!="",]
+dog.bites.age <- dog.bites.age[!gerpl("&",dog.bites.age$Age),]
+dog.bites$Age <- str_replace_all(dog.bites$Age,fixed(" "),"")
+dog.bites$Age <- toupper(dog.bites$Age)
+dog.bites$Age <- ifelse(nchar(dog.bites$Age)>5,"",dog.bites$Age)
+dog.bites.age <- dog.bites[dog.bites$Age!="",]
+dog.bites.age <- dog.bites.age[!grepl("&",dog.bites.age$Age),]
+dog.bites.age$Age[dog.bites.age$Age=="2-3YR"] <- "2.5"
+dog.bites.age$Age[dog.bites.age$Age=="2-3M"] <- "2.5M"
+dog.bites.age$Age <- ifelse(grepl("W",dog.bites.age$Age),0,dog.bites.age$Age)
+dog.bites.age$Age <- ifelse(grepl("M",dog.bites.age$Age),1,dog.bites.age$Age)
+dog.bites.age$Age <- ifelse(grepl("Y",dog.bites.age$Age),regmatches(dog.bites.age$Age,gregexpr('[0-9]+',dog.bites.age$Age)),dog.bites.age$Age)
+unique(dog.bites.age$Age)
+dog.bites.age$Age <- as.numeric(dog.bites.age$Age)
+write.csv(dog.bites.age,file = "dog.bites.age.csv")
+View(dog.bites.age)
+runApp('Documents/job/DSI/Q10')
+runApp('Documents/job/DSI/Q10')
+?geom_histogram
+runApp('Documents/job/DSI/Q10')
+runApp('Documents/job/DSI/Q10')
+unique(dog.bites$Gender)
+unique(dog.bites$SpayNeuter)
+dog.bites.gender <- dog.bites[dog.bites$Gender != "U"]
+dog.bites.gender <- dog.bites[dog.bites$Gender != "U",]
+unique(dog.bites$Gender)
+unique(dog.bites.gender$Gender)
+dog.bites.gender <- dog.bites[dog.bites$Gender != "U",]
+dog.bites.gender$Gender <- ifelse(dog.bites.gender$Gender == "F","Female","Male")
+write.csv(dog.bites.gender,file="dog.bites.gender.csv")
+runApp('Documents/job/DSI/Q8')
+runApp('Documents/job/DSI/Q8')
