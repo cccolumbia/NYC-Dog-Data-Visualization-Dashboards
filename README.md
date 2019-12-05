@@ -8,8 +8,10 @@ all the individual dashboards.
 
 Some examples :   
 <img width="890" alt="Map" src="https://user-images.githubusercontent.com/46551284/70204873-1a741a00-16f0-11ea-8942-17c0a3227ab1.png">
-
-
+<img width="889" alt="Map2" src="https://user-images.githubusercontent.com/46551284/70204875-1c3ddd80-16f0-11ea-91b4-f801b9760c56.png">
+<img width="896" alt="Multi Barchart" src="https://user-images.githubusercontent.com/46551284/70204880-219b2800-16f0-11ea-8cf1-7f16157e6305.png">
+<img width="892" alt="Barchart" src="https://user-images.githubusercontent.com/46551284/70204884-2364eb80-16f0-11ea-90c3-6b7c63ad3283.png">
+<img width="893" alt="Piechart" src="https://user-images.githubusercontent.com/46551284/70204888-252eaf00-16f0-11ea-9ddf-eba85619adb7.png">
 
 
 ## Data Source
@@ -28,5 +30,7 @@ Check the data details :
 
 ## Codes Description    
 
-Use DataPreprocessing.R to clean and process data. 
+
+R files in IndividualDashboards provides individual dashboards.    
+R file in FinalDashboards gives the whole dashboards combined the individual ones.
   
