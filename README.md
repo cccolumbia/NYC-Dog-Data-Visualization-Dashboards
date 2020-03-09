@@ -6,7 +6,9 @@ Topics are dogbites, dog names, dog licenses and dog runs in New York City.
 There are individual dashboards including interactive maps, barchart, piechart and world cloud and a whole dashboard including
 all the individual dashboards.      
 
-Some examples :   
+Some examples :  
+Home Page:
+
 <img width="890" alt="Map" src="https://user-images.githubusercontent.com/46551284/70204873-1a741a00-16f0-11ea-8942-17c0a3227ab1.png">
 <img width="889" alt="Map2" src="https://user-images.githubusercontent.com/46551284/70204875-1c3ddd80-16f0-11ea-91b4-f801b9760c56.png">
 <img width="896" alt="Multi Barchart" src="https://user-images.githubusercontent.com/46551284/70204880-219b2800-16f0-11ea-8cf1-7f16157e6305.png">
